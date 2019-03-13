@@ -70,7 +70,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:maxLength="3"
-            android:hint="valor da cor em \n hex ou decimal"
+            android:hint="valor da cor"
             android:inputType="numberDecimal"
             android:imeOptions="actionNext"/>
 
@@ -86,7 +86,7 @@
             android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
             android:maxLength="3"
-            android:hint="valor da cor em \n hex ou decimal"
+            android:hint="valor da cor"
             android:inputType="numberDecimal"
             android:imeOptions="actionNext"/>
 
@@ -102,10 +102,10 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:maxLength="3"
-            android:hint="valor da cor em \n hex ou decimal"
+            android:hint="valor da cor"
             android:inputType="numberDecimal"
             android:imeOptions="actionNext"
-            />
+    />
 
     <EditText
             android:layout_width="0dp"
@@ -119,10 +119,10 @@
             android:layout_marginEnd="32dp"
             android:layout_marginStart="32dp"
             android:maxLength="3"
-            android:hint="valor da cor em \n hex ou decimal"
+            android:hint="valor da cor"
             android:inputType="numberDecimal"
             android:imeOptions="actionDone"
-            />
+    />
 
     <TextView
             android:layout_width="0dp"
@@ -139,12 +139,17 @@
             android:id="@+id/guideline"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.85"/>
+
     <Spinner
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/spinner" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/label_calculator" android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="32dp"/>
+            android:id="@+id/spinner"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/label_calculator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:padding="15dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginStart="100dp"/>
 
 </android.support.constraint.ConstraintLayout>
