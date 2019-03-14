@@ -4,14 +4,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
-import android.text.InputType
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
 import android.view.View
+import android.view.WindowManager
 import android.widget.SeekBar
 import kotlinx.android.synthetic.main.activity_main.*
-import java.lang.Exception
-import java.lang.Integer.parseInt
 
 class MainActivity : AppCompatActivity() {
 
@@ -62,14 +60,15 @@ class MainActivity : AppCompatActivity() {
         writingDecNumber()
         writingHexNumber()
         seekingEditTextNumber()
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         button_type.setOnClickListener {
             buttonClick()
         }
 
-
     }
 
+    //---------------------------------------- Manipulando o editText do hexadecimal -------------------------------\\
     fun writingHexNumber() {
         editText_hex.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
@@ -94,18 +93,16 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    //---------------------------------------- Manipulando os editTexts do decimal -------------------------------\\
     fun writingDecNumber() {
 
         editText1.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(p0: Editable?) {
-            }
-
+            override fun afterTextChanged(p0: Editable?) {}
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
                 if (!p0.isNullOrEmpty()) {
-
                     seekBar.setOnSeekBarChangeListener(null) //anulando o listener da seekbar enquanto escrevo no edittext
                     seekBar.progress = p0.toString().toInt() //recebendo no progress da seekbar o valor digitado no edittext
                     seekBar.setOnSeekBarChangeListener(seekbar1ChangeListener) //ativando o listener da seekbar novamente
@@ -122,7 +119,6 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
                 if (!p0.isNullOrEmpty()) {
-
                     seekBar2.setOnSeekBarChangeListener(null)
                     seekBar2.progress = p0.toString().toInt()
                     seekBar2.setOnSeekBarChangeListener(seekbar2ChangeListener)
@@ -139,7 +135,6 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
                 if (!p0.isNullOrEmpty()) {
-
                     seekBar3.setOnSeekBarChangeListener(null)
                     seekBar3.progress = p0.toString().toInt()
                     seekBar3.setOnSeekBarChangeListener(seekbar3ChangeListener)
@@ -156,7 +151,6 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
                 if (!p0.isNullOrEmpty()) {
-
                     seekBar4.setOnSeekBarChangeListener(null)
                     seekBar4.progress = p0.toString().toInt()
                     seekBar4.setOnSeekBarChangeListener(seekbar4ChangeListener)
@@ -168,7 +162,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     //---------------------------------------- Associando seekbar com editText -------------------------------\\
-
     fun seekingEditTextNumber() {
 
         seekBar.setOnSeekBarChangeListener(seekbar1ChangeListener)
@@ -180,20 +173,7 @@ class MainActivity : AppCompatActivity() {
         seekBar4.setOnSeekBarChangeListener(seekbar4ChangeListener)
     }
 
-    //---------------------------------------- Convertendo as cores de Decimal para RGBA -------------------------------\\
-    fun decimalToRGBA() {
-//        Color.argb()
-    }
-
-    //---------------------------------------- Convertendo as cores de Hexadecimal para RGBA -------------------------------\\
-
-
-    //---------------------------------------- Para mostrar as cores na tela -------------------------------\\
-    fun showColor() {
-
-    }
-
-    //---------------------------------------- Populando o spinner com os tipos de cores -------------------------------\\
+    //---------------------------------------- Manipulando a visibilidade dos layouts + clique do botão -------------------------------\\
     fun showHide(view: View) {
         view.visibility = if (view.visibility == View.VISIBLE) {
             View.GONE
@@ -211,7 +191,6 @@ class MainActivity : AppCompatActivity() {
             showHide(constraintLayout_hex)
             showHide(constraintLayout_dec)
             button_type.text = "Decimal"
-            button_type.inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL
         }
     }
 
