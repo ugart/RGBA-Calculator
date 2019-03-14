@@ -207,11 +207,11 @@ class MainActivity : AppCompatActivity() {
             showHide(constraintLayout_dec)
             showHide(constraintLayout_hex)
             button_type.text = "Hexadecimal"
-            button_type.inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL
         } else {
             showHide(constraintLayout_hex)
             showHide(constraintLayout_dec)
             button_type.text = "Decimal"
+            button_type.inputType = InputType.TYPE_NUMBER_FLAG_DECIMAL
         }
     }
 
